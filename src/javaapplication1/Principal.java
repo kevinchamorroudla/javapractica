@@ -9,7 +9,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public class JavaApplication1 {
+public class Principal {
 
     public static void main(String[] args) {
         //JSON parser object to parse read file

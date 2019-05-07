@@ -17,7 +17,7 @@ public class Principal {
         
         try (FileReader reader = new FileReader("archivos/generated.json"))
         {
-            //Read JSON file
+            //Se lee el archivo Json
             Object obj = jsonParser.parse(reader);
  
             JSONArray employeeList = (JSONArray) obj;

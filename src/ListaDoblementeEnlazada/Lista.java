@@ -69,25 +69,26 @@ public class Lista {
     }
     
     public void ObtenerValorMasRepetido() {
-        
-        Nodo auxV = inicio.getSiguiente();
-        Nodo auxA;
-        Character aux;
-        while (auxV != null) {
-            aux = auxV.getDato();
-            auxA = auxV.getAnterior();
-            while (auxA != null && (aux < 97 ? (aux+32) : aux) < (auxA.getDato() < 97 ? (auxA.getDato()+32) : auxA.getDato())) {
-                auxA.getSiguiente().setDato(auxA.getDato());
-                auxA = auxA.getAnterior();
+        if (esVacia()) {
+            System.out.println("No hay elementos");
+        } else {
+            Nodo aux = inicio;
+            int maxRepeticion = 0;
+            int contador = 0;
+            Character dato;
+            Character datoSeguiente;
+            while (aux != null) {
+                dato = aux.getDato();
+                if(aux.getSiguiente() != null){
+                    datoSeguiente = aux.getSiguiente().getDato();
+                }else{
+                    break;
+                }
+                if(dato==datoSeguiente){
+                    contador++;
+                }
             }
-            if (auxA == null) {
-                inicio.setDato(aux);
-            } else {
-                auxA.getSiguiente().setDato(aux);
-            }
-            auxV = auxV.getSiguiente();
         }
-        
     }
     
 }

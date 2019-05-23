@@ -1,4 +1,4 @@
-package Ejercicio4;
+package Ejercicio6;
 
 public class Lista {
     
@@ -13,7 +13,7 @@ public class Lista {
         return inicio == null && fin == null;
     }
 
-    public void insertarInicio(int dato) {
+    public void insertarInicio(DatoPolinomio dato) {
         Nodo nuevo = new Nodo(dato, null, inicio);
         if (esVacia()) {
             inicio = fin = nuevo;
@@ -23,7 +23,7 @@ public class Lista {
         }
     }
 
-    public void insertarFin(int dato) {
+    public void insertarFin(DatoPolinomio dato) {
         Nodo nuevo = new Nodo(dato, fin, null);
         if (esVacia()) {
             inicio = fin = nuevo;
@@ -39,45 +39,31 @@ public class Lista {
         } else {
             Nodo aux = inicio;
             while (aux != null) {
-                System.out.print(aux.getDato() + " ");
+                System.out.print(aux.getDato().getTermino()+"x^"+aux.getDato().getTermino());
                 aux = aux.getSiguiente();
+                if(aux!=null){
+                    System.out.print("+");
+                }
             }
             System.out.println("");
         }
     }
-
-    public void ordenar() {
-        Nodo auxV = inicio.getSiguiente();
-        Nodo auxA = null;
-        int aux = Integer.MIN_VALUE;
-        while (auxV != null) {
-            aux = auxV.getDato();
-            auxA = auxV.getAnterior();
-            while (auxA != null && aux < auxA.getDato()) {
-                auxA.getSiguiente().setDato(auxA.getDato());
-                auxA = auxA.getAnterior();
-            }
-            if (auxA == null) {
-                inicio.setDato(aux);
-            } else {
-                auxA.getSiguiente().setDato(aux);
-            }
-            auxV = auxV.getSiguiente();
-        }
-    }
-    public void EliminarNumerosSuperiores(int numeroMaximo){
+    
+    public int evaluarPolinomio(int numero) {
+        int valor = 0;
         if (esVacia()) {
             System.out.println("No hay elementos");
         } else {
             Nodo aux = inicio;
             while (aux != null) {
-                if(aux.getDato() > numeroMaximo){
-                    fin = aux.getAnterior();
-                    fin.setSiguiente(null);
-                    break;
-                }
-                aux = aux.getSiguiente();
+                int valor1 = 0;
+                valor1 = aux.getDato().getTermino()*numero;
+                valor1 = (int) Math.pow(valor1, aux.getDato().getExponente());
+                valor += valor1;
+                aux=aux.getSiguiente();
             }
         }
+        return valor;
     }
+
 }

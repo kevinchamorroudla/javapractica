@@ -1,22 +1,22 @@
-package Ejercicio4;
+package Ejercicio6;
 
 public class Nodo {
     
-    private int dato;
+    private DatoPolinomio dato;
     private Nodo anterior;
     private Nodo siguiente;
 
-    public Nodo(int dato, Nodo anterior, Nodo siguiente) {
+    public Nodo(DatoPolinomio dato, Nodo anterior, Nodo siguiente) {
         this.dato = dato;
         this.anterior = anterior;
         this.siguiente = siguiente;
     }
 
-    public int getDato() {
+    public DatoPolinomio getDato() {
         return dato;
     }
 
-    public void setDato(int dato) {
+    public void setDato(DatoPolinomio dato) {
         this.dato = dato;
     }
 

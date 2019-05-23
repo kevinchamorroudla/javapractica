@@ -1,4 +1,6 @@
-package ListaDoblementeEnlazada;
+package Ejercicio4;
+
+import ListaDoblementeEnlazada.*;
 
 public class Lista {
     

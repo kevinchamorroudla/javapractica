@@ -15,7 +15,7 @@ public class Lista {
         return inicio == null && fin == null;
     }
 
-    public void insertarInicio(Character dato) {
+    public void insertarInicio(int dato) {
         Nodo nuevo = new Nodo(dato, null, inicio);
         if (esVacia()) {
             inicio = fin = nuevo;
@@ -25,7 +25,7 @@ public class Lista {
         }
     }
 
-    public void insertarFin(Character dato) {
+    public void insertarFin(int dato) {
         Nodo nuevo = new Nodo(dato, fin, null);
         if (esVacia()) {
             inicio = fin = nuevo;
@@ -49,14 +49,13 @@ public class Lista {
     }
 
     public void ordenar() {
-        
         Nodo auxV = inicio.getSiguiente();
-        Nodo auxA;
-        Character aux;
+        Nodo auxA = null;
+        int aux = Integer.MIN_VALUE;
         while (auxV != null) {
             aux = auxV.getDato();
             auxA = auxV.getAnterior();
-            while (auxA != null && (aux < 97 ? (aux+32) : aux) < (auxA.getDato() < 97 ? (auxA.getDato()+32) : auxA.getDato())) {
+            while (auxA != null && aux < auxA.getDato()) {
                 auxA.getSiguiente().setDato(auxA.getDato());
                 auxA = auxA.getAnterior();
             }
@@ -67,40 +66,20 @@ public class Lista {
             }
             auxV = auxV.getSiguiente();
         }
-        
     }
-    
-    public String ObtenerValorMasRepetido() {
-        Character dato = null;
+    public void EliminarNumerosSuperiores(int numeroMaximo){
         if (esVacia()) {
-            return "No hay elementos";
+            System.out.println("No hay elementos");
         } else {
             Nodo aux = inicio;
-            int maxRepeticion = 0;
-            int contador = 0;
             while (aux != null) {
-                //if((aux.getDato() >= 65 && aux.getDato() <= 90) | (aux.getDato() >= 97 && aux.getDato() <= 122)){
-                    if(aux.getSiguiente() != null && aux.getDato() == aux.getSiguiente().getDato()){
-                        contador++;
-                    }else{
-                        if(contador > maxRepeticion){
-                            dato = aux.getDato();
-                            maxRepeticion = contador;
-                        }
-                        if(contador == maxRepeticion && dato != aux.getDato()){
-                            dato = null;
-                        }
-                        contador = 0;
-                    }
-                //}
+                if(aux.getDato() > numeroMaximo){
+                    fin = aux.getAnterior();
+                    fin.setSiguiente(null);
+                    break;
+                }
                 aux = aux.getSiguiente();
             }
         }
-        if(dato == null){
-            return "!No existe una letra con un mayor grado de repeticion!";
-        }else{
-            return "-El caracter mas repetido es : '" + dato + "'"; 
-        }
     }
-    
 }

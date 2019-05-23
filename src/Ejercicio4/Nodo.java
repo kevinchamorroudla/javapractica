@@ -4,21 +4,21 @@ import ListaDoblementeEnlazada.*;
 
 public class Nodo {
     
-    private Character dato;
+    private int dato;
     private Nodo anterior;
     private Nodo siguiente;
 
-    public Nodo(Character dato, Nodo anterior, Nodo siguiente) {
+    public Nodo(int dato, Nodo anterior, Nodo siguiente) {
         this.dato = dato;
         this.anterior = anterior;
         this.siguiente = siguiente;
     }
 
-    public Character getDato() {
+    public int getDato() {
         return dato;
     }
 
-    public void setDato(Character dato) {
+    public void setDato(int dato) {
         this.dato = dato;
     }
 

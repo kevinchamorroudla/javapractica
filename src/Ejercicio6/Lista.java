@@ -39,7 +39,7 @@ public class Lista {
         } else {
             Nodo aux = inicio;
             while (aux != null) {
-                System.out.print(aux.getDato().getTermino()+"x^"+aux.getDato().getTermino());
+                System.out.print(aux.getDato().getTermino()+"x^"+aux.getDato().getExponente());
                 aux = aux.getSiguiente();
                 if(aux!=null){
                     System.out.print("+");

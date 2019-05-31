@@ -6,13 +6,13 @@ public class Principal {
         
         Lista lista = new Lista();
         DatoPolinomio dato3 = new DatoPolinomio();
-        dato3.setTermino(3);
-        dato3.setExponente(3);
+        dato3.setTermino(2);
+        dato3.setExponente(4);
         DatoPolinomio dato2 = new DatoPolinomio();
-        dato2.setTermino(2);
-        dato2.setExponente(2);
+        dato2.setTermino(1);
+        dato2.setExponente(3);
         DatoPolinomio dato1 = new DatoPolinomio();
-        dato1.setTermino(1);
+        dato1.setTermino(5);
         dato1.setExponente(1);
         lista.insertarFin(dato3);
         lista.insertarFin(dato2);

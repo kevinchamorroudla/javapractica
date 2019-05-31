@@ -65,6 +65,7 @@ public class Lista {
             auxV = auxV.getSiguiente();
         }
     }
+    
     public void EliminarNumerosSuperiores(int numeroMaximo){
         if (esVacia()) {
             System.out.println("No hay elementos");
